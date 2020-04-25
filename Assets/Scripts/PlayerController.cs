@@ -1,22 +1,27 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityStandardAssets.CrossPlatformInput;
 
-public class Player : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    [Tooltip("In ms^-1")][SerializeField] float xSpeed = 4f;
-    [Tooltip("In ms^-1")][SerializeField] float ySpeed = 4f;
+    [Header("General")]
     [Tooltip("In m")][SerializeField] float yEdge = 3f;
     [FormerlySerializedAs("screenEdge")] [Tooltip("In m")][SerializeField] private float xEdge = 5f;
     
+    [Header("Speed")]
+    [Tooltip("In ms^-1")][SerializeField] float xSpeed = 4f;
+    [Tooltip("In ms^-1")][SerializeField] float ySpeed = 4f;
+    
+    [Header("Position")]
     [FormerlySerializedAs("pitchFactor")] [SerializeField] private float positionPitchFactor = -5f;
     [SerializeField] private float controlPitchFactor = -15f;
     [SerializeField] private float positionYawFactor = 5f;
     [SerializeField] private float controlRollFactor = -15f;
 
     public float xThrow, yThrow;
+
+    public bool isAlive = true;
     
     // Update is called once per frame
     void Update()
@@ -24,10 +29,20 @@ public class Player : MonoBehaviour
         MoveShip();
     }
 
+    // Called by string reference
+    private void OnPlayerDeath()
+    {
+        isAlive = false;
+    }
+
     private void MoveShip()
     {
-        ProcessTranslation();
-        ProcessRotation();
+        if (isAlive)
+        {
+            ProcessTranslation();
+            ProcessRotation();
+        }
+        
     }
 
     private void ProcessRotation()
