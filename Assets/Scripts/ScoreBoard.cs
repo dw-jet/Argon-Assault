@@ -1,0 +1,30 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class ScoreBoard : MonoBehaviour
+{
+    private int score;
+    private Text scoreText;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        scoreText = GetComponent<Text>();
+        scoreText.text = score.ToString();
+        Invoke(nameof(ScoreBasedOnTime), 10f);
+    }
+
+    public void ScoreHit(int scorePerHit)
+    {
+        score += scorePerHit;
+        scoreText.text = score.ToString();
+    }
+
+    private void ScoreBasedOnTime()
+    {
+        ScoreHit(5);
+        Invoke(nameof(ScoreBasedOnTime), 10f);
+    }
+}
