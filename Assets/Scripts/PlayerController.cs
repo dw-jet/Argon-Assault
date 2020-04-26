@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [Header("General")]
     [Tooltip("In m")][SerializeField] float yEdge = 3f;
     [FormerlySerializedAs("screenEdge")] [Tooltip("In m")][SerializeField] private float xEdge = 5f;
+    [SerializeField] private GameObject[] guns;
     
     [Header("Speed")]
     [Tooltip("In ms^-1")][SerializeField] float xSpeed = 4f;
@@ -41,8 +42,27 @@ public class PlayerController : MonoBehaviour
         {
             ProcessTranslation();
             ProcessRotation();
+            ProcessFiring();
         }
         
+    }
+
+    private void ProcessFiring()
+    {
+        if (CrossPlatformInputManager.GetButton("Fire"))
+        {
+            foreach (var gun in guns)
+            {
+                gun.SetActive(true);
+            }
+        }
+        else
+        {
+            foreach (var gun in guns)
+            {
+                gun.SetActive(false);
+            }
+        }
     }
 
     private void ProcessRotation()

@@ -605,6 +605,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6602796238990747172}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &735474838 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4246556223339669306, guid: 13225ab9c3c98214284dcd96c5bb439f,
+    type: 3}
+  m_PrefabInstance: {fileID: 6658099044405207004}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &798434204
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,6 +937,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1593572012 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6658099045737313094, guid: 13225ab9c3c98214284dcd96c5bb439f,
+    type: 3}
+  m_PrefabInstance: {fileID: 6658099044405207004}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1799338627
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1592,6 +1604,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6658099045093767587, guid: 13225ab9c3c98214284dcd96c5bb439f,
         type: 3}
+      propertyPath: guns.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6658099045093767587, guid: 13225ab9c3c98214284dcd96c5bb439f,
+        type: 3}
       propertyPath: yEdge
       value: 3.5
       objectReference: {fileID: 0}
@@ -1600,6 +1617,16 @@ PrefabInstance:
       propertyPath: xEdge
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6658099045093767587, guid: 13225ab9c3c98214284dcd96c5bb439f,
+        type: 3}
+      propertyPath: guns.Array.data[0]
+      value: 
+      objectReference: {fileID: 1593572012}
+    - target: {fileID: 6658099045093767587, guid: 13225ab9c3c98214284dcd96c5bb439f,
+        type: 3}
+      propertyPath: guns.Array.data[1]
+      value: 
+      objectReference: {fileID: 735474838}
     - target: {fileID: 6658099045737313094, guid: 13225ab9c3c98214284dcd96c5bb439f,
         type: 3}
       propertyPath: m_Name
