@@ -51,17 +51,20 @@ public class PlayerController : MonoBehaviour
     {
         if (CrossPlatformInputManager.GetButton("Fire"))
         {
-            foreach (var gun in guns)
-            {
-                gun.SetActive(true);
-            }
+            SetGunsActive(true);
         }
         else
         {
-            foreach (var gun in guns)
-            {
-                gun.SetActive(false);
-            }
+            SetGunsActive(false);
+        }
+    }
+
+    private void SetGunsActive(bool isActive)
+    {
+        foreach (var gun in guns)
+        {
+            var emissionModule = gun.GetComponent<ParticleSystem>().emission;
+            emissionModule.enabled = isActive;
         }
     }
 
